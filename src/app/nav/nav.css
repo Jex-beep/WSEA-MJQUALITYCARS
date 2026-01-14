@@ -1,0 +1,73 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 40px; /* Balanced padding */
+  background-color: rgba(0, 0, 0, 0.95); /* Slightly transparent for a modern look */
+  backdrop-filter: blur(10px); /* Blur effect if there's content behind it */
+  height: 90px;
+  width: 100%;
+  box-sizing: border-box;
+  position: sticky; /* Keeps the nav at the top while scrolling */
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5); /* Subtle depth */
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  transition: transform 0.3s ease;
+}
+
+.logo-container:hover {
+  transform: scale(1.02); /* Slight pop when hovering the logo */
+}
+
+.logo {
+  height: 100px;
+  width: auto;
+  object-fit: contain;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 35px;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links a {
+  color: #ffffff;
+  text-decoration: none;
+  font-family: 'Inter', 'Segoe UI', Roboto, sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  text-transform: uppercase; /* Makes it look more like a car brand */
+  letter-spacing: 1px;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+/* Underline animation on hover */
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -5px;
+  left: 0;
+  background-color: #e31e24;
+  transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after {
+  width: 100%;
+}
+
+.nav-links a:hover, 
+.nav-links a.active {
+  color: #e31e24;
+}
