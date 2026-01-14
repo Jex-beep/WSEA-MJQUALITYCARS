@@ -1,0 +1,113 @@
+.main-footer {
+  background-color: #050505; /* Deeper black for premium feel */
+  color: #ffffff;
+  padding: 80px 10% 30px;
+  font-family: 'Inter', 'Segoe UI', sans-serif;
+  border-top: 4px solid #e31e24; /* Stronger brand accent */
+  position: relative;
+  overflow: hidden;
+}
+
+/* Sublte background texture or glow */
+.main-footer::before {
+  content: '';
+  position: absolute;
+  top: -50px;
+  right: -50px;
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, rgba(227, 30, 36, 0.1) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start; /* Align to top for a cleaner grid */
+  flex-wrap: wrap;
+  gap: 50px;
+}
+
+.footer-column {
+  flex: 1;
+  min-width: 280px;
+}
+
+.footer-logo {
+  max-height: 200px;
+  filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.1));
+  transition: transform 0.4s ease;
+}
+
+.footer-logo:hover {
+  transform: scale(1.05);
+}
+
+.slogan-area h2 {
+  font-size: 2.2rem;
+  font-weight: 900;
+  margin: 0;
+  line-height: 1.1;
+  letter-spacing: -1px;
+  text-transform: uppercase;
+}
+
+.slogan-area p {
+  color: #e31e24; /* Slogan secondary text in brand red */
+  font-weight: 600;
+  margin-top: 15px;
+  font-size: 1.2rem;
+  letter-spacing: 1px;
+}
+
+.contact-area {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  background: rgba(255, 255, 255, 0.03); /* Glassmorphism container */
+  padding: 25px;
+  border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  transition: transform 0.2s ease;
+}
+
+.contact-item:hover {
+  transform: translateX(10px);
+}
+
+.contact-item a, .contact-item p {
+  color: #e0e0e0;
+  text-decoration: none;
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 400;
+}
+
+.contact-item a:hover {
+  color: #e31e24;
+}
+
+/* Icon Placeholders - Replace with actual SVG/Images for best look */
+.icon {
+  width: 24px;
+  height: 24px;
+  background-color: #e31e24;
+  border-radius: 4px;
+  display: inline-block;
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 80px;
+  padding-top: 30px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 0.85rem;
+  color: #777;
+  letter-spacing: 1px;
+}
