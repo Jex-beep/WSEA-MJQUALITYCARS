@@ -9,8 +9,8 @@
   color: #fff;
   text-align: center;
   padding: 80px 20px 100px; /* Reduced bottom padding slightly */
-  border-bottom-left-radius: 50% 30px;
-  border-bottom-right-radius: 50% 30px;
+  border-bottom-left-radius: 50% 100px;
+  border-bottom-right-radius: 50% 100px;
   /* Removed negative margin-bottom to stop pulling the white section up */
   margin-bottom: 0; 
 }
