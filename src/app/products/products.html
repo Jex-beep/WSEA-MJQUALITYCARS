@@ -7,25 +7,39 @@
 
   <div class="filter-container">
     <div class="category-filters">
-      <button class="filter-btn active">All vehicles</button>
+      <button class="filter-btn" 
+              [class.active]="selectedCategory === 'All'" 
+              (click)="filterCars('All')">
+        All vehicles
+      </button>
       
-      <button class="filter-btn">
+      <button class="filter-btn" 
+              [class.active]="selectedCategory === 'Sedan'" 
+              (click)="filterCars('Sedan')">
         <img src="/sedan.png" alt="Sedan" class="btn-icon"> Sedan
       </button>
       
-      <button class="filter-btn">
+      <button class="filter-btn" 
+              [class.active]="selectedCategory === 'Pickup'" 
+              (click)="filterCars('Pickup')">
         <img src="/pickup.png" alt="Pickup" class="btn-icon"> Pickup
       </button>
       
-      <button class="filter-btn">
+      <button class="filter-btn" 
+              [class.active]="selectedCategory === 'Coupe'" 
+              (click)="filterCars('Coupe')">
         <img src="/coupe.png" alt="Coupe" class="btn-icon"> Coupe
       </button>
       
-      <button class="filter-btn">
+      <button class="filter-btn" 
+              [class.active]="selectedCategory === 'Suv'" 
+              (click)="filterCars('Suv')">
         <img src="/suv.png" alt="SUV" class="btn-icon"> Suv
       </button>
       
-      <button class="filter-btn">
+      <button class="filter-btn" 
+              [class.active]="selectedCategory === 'Micro'" 
+              (click)="filterCars('Micro')">
         <img src="/micro.png" alt="Micro" class="btn-icon"> Micro
       </button>
     </div>
@@ -45,6 +59,10 @@
           <p class="car-type">{{ car.type }}</p>
           <button class="view-details">View Details</button>
         </div>
+      </div>
+    } @empty {
+      <div class="no-results">
+        <p>Currently no {{ selectedCategory }}s available. Please check back later!</p>
       </div>
     }
   </div>
