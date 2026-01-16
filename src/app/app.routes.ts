@@ -6,6 +6,8 @@ import { Blog } from './blog/blog';
 import { Contact } from './contact/contact';
 import { Error } from './error/error';
 import { ProductDetail } from './products/product-detail/product-detail';
+import { BlogService } from './services/blogs';
+import { BlogDetail } from './blog/blog-detail/blog-detail';
 
 export const routes: Routes = [
     {
@@ -27,6 +29,10 @@ export const routes: Routes = [
     {
         path: 'blog',
         component: Blog
+    },
+    {
+        path: 'blog/:id',
+        component: BlogDetail
     },
     {
         path: 'contact',

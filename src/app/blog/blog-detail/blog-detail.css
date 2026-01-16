@@ -1,0 +1,162 @@
+/* 1. Page & Layout Reset */
+.blog-detail-view {
+  max-width: 900px; /* Optimal reading width for long-form content */
+  margin: 80px auto 120px;
+  padding: 0 30px;
+  animation: fadeIn 0.8s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* 2. Author Header Section */
+.author-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.author-avatar {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 12px;
+  border: 3px solid #f0f0f0;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.author-name {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-weight: 800;
+  font-size: 1.1rem;
+  color: #000;
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.author-role {
+  font-size: 0.85rem;
+  color: #888;
+  margin: 4px 0 0;
+  font-weight: 500;
+}
+
+/* 3. Title & Meta */
+.detail-title {
+  font-size: 3.2rem;
+  font-weight: 900;
+  text-align: center;
+  line-height: 1.1;
+  color: #000;
+  margin: 20px 0 30px;
+  letter-spacing: -1px;
+}
+
+.detail-meta {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  color: #666;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 60px;
+}
+
+.meta-dot {
+  width: 4px;
+  height: 4px;
+  background-color: #d10000;
+  border-radius: 50%;
+}
+
+/* 4. The Content Layout */
+.main-layout {
+  display: grid;
+  grid-template-columns: 80px 1fr; /* Space for the floating sidebar */
+  gap: 40px;
+  position: relative;
+}
+
+/* Sticky Social Sidebar */
+.share-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  position: sticky;
+  top: 120px; /* Keeps icons in view as user scrolls */
+  height: fit-content;
+}
+
+.circle-btn {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  border: 1px solid #eee;
+  background: #fff;
+  color: #444;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.2, 1, 0.3, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+}
+
+.circle-btn:hover {
+  background: #000;
+  color: #fff;
+  transform: scale(1.1);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+/* 5. Rich Text Content Styling */
+.post-body {
+  max-width: 700px; /* Inner content width for better focus */
+}
+
+.rich-text {
+  font-size: 1.25rem;
+  line-height: 1.9;
+  color: #222;
+  font-family: 'Georgia', serif; /* Serif font is best for reading long text */
+}
+
+/* Professional Image Handling within Content */
+.rich-text img {
+  width: 100%;
+  height: auto;
+  border-radius: 25px; /* Matching your blog list curve */
+  margin: 50px 0;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.07);
+  display: block;
+}
+
+.rich-text p {
+  margin-bottom: 28px;
+}
+
+/* 6. Responsive Adjustments */
+@media (max-width: 1024px) {
+  .detail-title { font-size: 2.5rem; }
+}
+
+@media (max-width: 768px) {
+  .main-layout { grid-template-columns: 1fr; }
+  .share-sidebar {
+    flex-direction: row;
+    position: static;
+    justify-content: center;
+    margin-bottom: 30px;
+  }
+  .detail-title { font-size: 2rem; }
+  .blog-detail-view { margin-top: 40px; }
+}

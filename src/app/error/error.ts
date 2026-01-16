@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { Title, Meta } from '@angular/platform-browser'; // Import these for SEO
+import { Title, Meta } from '@angular/platform-browser';
+import { Nav } from "../nav/nav"; // Import these for SEO
 
 @Component({
   selector: 'app-error',
   standalone: true,
-  imports: [RouterLink],
+  imports: [RouterLink, Nav],
   templateUrl: './error.html',
   styleUrl: './error.css',
 })

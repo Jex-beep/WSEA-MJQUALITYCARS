@@ -1,0 +1,30 @@
+<app-nav></app-nav>
+
+<article class="blog-detail-view" *ngIf="blog">
+  <header class="author-header">
+    <img [src]="blog.authorImage" alt="Author" class="author-avatar">
+    <p class="author-name">{{ blog.author }}</p>
+    <p class="author-role">Author</p>
+  </header>
+
+  <h1 class="detail-title">{{ blog.title }}</h1>
+
+  <div class="detail-meta">
+    <span><i class="far fa-clock"></i> {{ blog.readTime }}</span>
+    <span class="meta-dot"></span>
+    <span>{{ blog.date }}</span>
+  </div>
+
+  <div class="main-layout">
+    <aside class="share-sidebar">
+      <button class="circle-btn"><i class="fab fa-facebook-f"></i></button>
+      <button class="circle-btn"><i class="fas fa-link"></i></button>
+    </aside>
+
+    <div class="post-body">
+      <div class="rich-text" [innerHTML]="blog.content"></div>
+    </div>
+  </div>
+</article>
+
+<app-footer></app-footer>
