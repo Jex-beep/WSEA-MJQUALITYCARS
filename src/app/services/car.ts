@@ -64,6 +64,7 @@ export class CarService {
       equipment: ['ABS', 'Air Bags', 'Cruise Control', 'Sunroof', '4x4 Drive', 'Heated Seats']
     },
     
+    
 
   ];
 

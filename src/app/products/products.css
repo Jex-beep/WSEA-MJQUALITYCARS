@@ -22,58 +22,113 @@
   margin: 0;
 }
 
-/* 2. Category Filter Styling - Pushed Lower */
+/* --- Category Filter Styling (The "Midnight Frame") --- */
 .filter-container {
   display: flex;
   justify-content: center;
   position: relative;
-  /* Added positive margin to push buttons down away from the black curve */
-  margin-top: 30px; 
+  margin: 50px 0; /* Ensures distance from header and product grid */
   z-index: 10;
+  padding: 0 15px;
 }
 
 .category-filters {
   display: flex;
-  gap: 15px;
+  gap: 14px;
   flex-wrap: wrap;
   justify-content: center;
-  padding: 10px;
+  padding: 18px 35px;
+  /* Glassmorphism effect */
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(20px) saturate(180%);
+  border-radius: 100px;
+  /* Darkened, defined border */
+  border: 1.5px solid rgba(0, 0, 0, 0.12);
+  /* Depth shadow */
+  box-shadow: 
+    0 15px 40px rgba(0, 0, 0, 0.08),
+    0 5px 10px rgba(0, 0, 0, 0.03);
 }
 
 .filter-btn {
-  background: white;
-  border: none;
-  padding: 10px 25px;
+  background: #ffffff;
+  border: 1.5px solid #d1d1d1;
+  padding: 12px 26px;
   border-radius: 50px;
-  font-weight: 600;
+  font-weight: 800;
+  font-size: 0.85rem;
   display: flex;
   align-items: center;
-  gap: 8px;
-  /* Increased shadow slightly so they pop better on the white background */
-  box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+  gap: 12px;
+  color: #222;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
   cursor: pointer;
-  transition: 0.3s;
-  color: #333;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  position: relative;
 }
 
 .btn-icon {
   width: 20px;
   height: auto;
+  opacity: 0.9;
+  transition: 0.3s;
 }
 
+/* --- Active State: Deep MJ Crimson --- */
 .filter-btn.active {
   background-color: #610000;
-  color: white;
+  border-color: #4a0000;
+  color: #ffffff;
+  /* Glowing outer shadow and slight inner depth */
+  box-shadow: 
+    0 8px 25px rgba(97, 0, 0, 0.4),
+    inset 0 2px 5px rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
 }
 
-/* Turns icons white when the button is active */
 .filter-btn.active .btn-icon {
   filter: brightness(0) invert(1);
+  transform: scale(1.1);
 }
 
+/* --- Hover State: Interactive Lift --- */
 .filter-btn:hover:not(.active) {
-  background-color: #f0f0f0;
-  transform: translateY(-2px);
+  background-color: #fdfdfd;
+  border-color: #610000;
+  color: #610000;
+  transform: translateY(-5px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* --- Under-Glow Indicator --- */
+.filter-btn.active::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 12px;
+  height: 4px;
+  background: #610000;
+  border-radius: 10px;
+  box-shadow: 0 0 10px #610000;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .category-filters {
+    padding: 12px 15px;
+    border-radius: 30px;
+    gap: 8px;
+  }
+  
+  .filter-btn {
+    padding: 8px 16px;
+    font-size: 0.75rem;
+    border-width: 1px;
+  }
 }
 
 /* 3. Grid and Cards (Remains the same) */

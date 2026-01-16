@@ -1,113 +1,166 @@
 .main-footer {
-  background-color: #000; /* Deeper black for premium feel */
-  color: #ffffff;
-  padding: 80px 10% 30px;
-  font-family: 'Inter', 'Segoe UI', sans-serif;
-  border-top: 4px solid #e31e24; /* Stronger brand accent */
+  background: #020202;
+  color: #fff;
+  padding: 100px 5% 20px;
+  font-family: 'Inter', sans-serif;
   position: relative;
-  overflow: hidden;
+  border-top: 1px solid #222;
 }
 
-/* Sublte background texture or glow */
+/* Background Blueprint Grid */
 .main-footer::before {
   content: '';
   position: absolute;
-  top: -50px;
-  right: -50px;
-  width: 200px;
-  height: 200px;
-  background: radial-gradient(circle, rgba(227, 30, 36, 0.1) 0%, transparent 70%);
+  inset: 0;
+  background-image: 
+    linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+  background-size: 50px 50px;
   pointer-events: none;
 }
 
-.footer-content {
+.footer-blueprint {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr 1fr;
+  gap: 40px;
+  position: relative;
+  z-index: 5;
+}
+
+/* Section Styling */
+.blueprint-section {
+  border: 1px solid rgba(255,255,255,0.05);
+  padding: 30px;
+  background: rgba(0,0,0,0.4);
+}
+
+/* Left Section: Specs */
+.serial-no {
+  font-size: 0.6rem;
+  color: #e31e24;
+  letter-spacing: 2px;
+  display: block;
+}
+
+.spec-title {
+  text-transform: uppercase;
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+  letter-spacing: 2px;
+}
+
+.spec-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.spec-item {
+  border-left: 2px solid #e31e24;
+  padding-left: 10px;
+}
+
+.spec-item .label {
+  display: block;
+  font-size: 0.5rem;
+  color: #555;
+}
+
+.spec-item .value {
+  font-weight: 800;
+  font-size: 0.8rem;
+}
+
+/* Center Section: Brand */
+.brand-core {
+  text-align: center;
+  border: none; /* Keep center clean */
+  background: transparent;
+}
+
+.glitch-logo {
+  height: 110px;
+  filter: grayscale(1) brightness(1.5);
+  transition: 0.5s;
+}
+
+.brand-core:hover .glitch-logo {
+  filter: grayscale(0) drop-shadow(0 0 15px rgba(227,30,36,0.5));
+}
+
+.blueprint-coordinates {
+  font-size: 0.7rem;
+  color: #444;
+  margin: 15px 0;
+  font-family: monospace;
+}
+
+.main-slogan {
+  font-size: 2.8rem;
+  text-transform: uppercase;
+  font-weight: 900;
+  line-height: 0.9;
+}
+
+.outline-text {
+  -webkit-text-stroke: 1px #fff;
+  color: transparent;
+}
+
+/* Right Section: Comms */
+.comm-row {
+  margin-bottom: 15px;
   display: flex;
   justify-content: space-between;
-  align-items: flex-start; /* Align to top for a cleaner grid */
-  flex-wrap: wrap;
-  gap: 50px;
+  border-bottom: 1px solid rgba(255,255,255,0.03);
+  padding-bottom: 5px;
 }
 
-.footer-column {
-  flex: 1;
-  min-width: 280px;
-}
-
-.footer-logo {
-  max-height: 200px;
-  filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.1));
-  transition: transform 0.4s ease;
-}
-
-.footer-logo:hover {
-  transform: scale(1.05);
-}
-
-.slogan-area h2 {
-  font-size: 2.2rem;
+.comm-label {
+  font-size: 0.65rem;
   font-weight: 900;
-  margin: 0;
-  line-height: 1.1;
-  letter-spacing: -1px;
-  text-transform: uppercase;
-}
-
-.slogan-area p {
-  color: #e31e24; /* Slogan secondary text in brand red */
-  font-weight: 600;
-  margin-top: 15px;
-  font-size: 1.2rem;
-  letter-spacing: 1px;
-}
-
-.contact-area {
-  display: flex;
-  flex-direction: column;
-  gap: 18px;
-  background: rgba(255, 255, 255, 0.03); /* Glassmorphism container */
-  padding: 25px;
-  border-radius: 15px;
-  border: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-.contact-item {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  transition: transform 0.2s ease;
-}
-
-.contact-item:hover {
-  transform: translateX(10px);
-}
-
-.contact-item a, .contact-item p {
-  color: #e0e0e0;
-  text-decoration: none;
-  margin: 0;
-  font-size: 1.05rem;
-  font-weight: 400;
-}
-
-.contact-item a:hover {
   color: #e31e24;
 }
 
-/* Icon Placeholders - Replace with actual SVG/Images for best look */
-.icon {
-  width: 24px;
-  height: 24px;
-  background-color: #e31e24;
-  border-radius: 4px;
-  display: inline-block;
+.comm-value {
+  font-size: 0.85rem;
+  color: #bbb;
+  text-decoration: none;
 }
 
-.footer-bottom {
-  text-align: center;
+.btn-outline {
+  display: inline-block;
+  border: 1px solid #fff;
+  padding: 10px 20px;
+  font-size: 0.6rem;
+  font-weight: 800;
+  color: #fff;
+  text-decoration: none;
+  margin-top: 20px;
+  margin-right: 10px;
+  transition: 0.3s;
+}
+
+.btn-outline:hover {
+  background: #e31e24;
+  border-color: #e31e24;
+}
+
+/* Meta Bar */
+.meta-bar {
   margin-top: 80px;
-  padding-top: 30px;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  font-size: 0.85rem;
-  color: #777;
-  letter-spacing: 1px;
+  border-top: 1px solid #222;
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 0;
+  font-size: 0.6rem;
+  color: #333;
+  letter-spacing: 2px;
+}
+
+/* Mobile Tweak */
+@media (max-width: 1024px) {
+  .footer-blueprint { grid-template-columns: 1fr; }
+  .main-slogan { font-size: 2rem; }
 }
