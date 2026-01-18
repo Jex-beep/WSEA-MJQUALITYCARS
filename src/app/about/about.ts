@@ -38,17 +38,17 @@ export class About {
 
  reviews = [
     {
-      name: 'Jex Punsalan',
+      name: 'Andre Josef',
       content: 'Great experience! The staff was friendly and helped me find the perfect car within my budget.',
       rating: 5 // Changed from 5/5 to 5
     },
     {
-      name: 'Jeximus Prime',
+      name: 'Renz Chu',
       content: 'Wide selection of vehicles and transparent pricing. Highly recommend M&J Quality Used Cars!',
       rating: 5 // Changed from 5/5 to 5
     },
     {
-      name: 'Julred 10',
+      name: 'Clarence Castillo',
       content: 'The financing process was smooth and hassle-free. I drove away in my new car the same day!',
       rating: 5 // Changed from 5/5 to 5
     }

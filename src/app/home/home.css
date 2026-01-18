@@ -1,33 +1,56 @@
 /* 1. Eliminate all gaps */
 .main-content-wrapper {
-  background-color: white; /* Set to black to match the image */
+  background-color: #000000; /* Match hero background */
   color: #ffffff;
   font-family: 'Segoe UI', Roboto, sans-serif;
   margin: 0;
   padding: 0;
   width: 100%;
+  overflow-x: hidden; /* Prevents horizontal scroll from large car image */
 }
 
 /* 2. Maximize Hero Space */
 .hero-section {
-  background-color: #000000;
-  min-height: 90vh; /* Takes up most of the screen height */
+  min-height: 90vh;
   display: flex;
   align-items: center;
-  padding: 0; /* Remove padding to touch the edges */
-  margin: 0;
   position: relative;
+  overflow: hidden;
+
+  background:
+    radial-gradient(circle at 20% 40%, rgba(139, 0, 0, 0.15), transparent 40%),
+    radial-gradient(circle at 80% 60%, rgba(255, 255, 255, 0.03), transparent 50%),
+    linear-gradient(180deg, #0a0a0a 0%, #000000 100%);
 }
+
+.hero-section::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 180px;
+
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(0,0,0,0) 0%,
+      rgba(0,0,0,0.35) 35%,
+      #ffffff 100%
+    );
+
+  pointer-events: none;
+}
+
 
 .hero-container {
   display: flex;
   width: 100%;
-  max-width: 1400px; /* Limits width on huge screens but stays centered */
+  max-width: 1400px;
   margin: 0 auto;
   align-items: center;
   justify-content: space-between;
-  padding: 0 5%; /* Side padding only */
-  
+  padding: 60px 5%; /* Top padding prevents text hitting the header curve */
 }
 
 /* 3. Ample space for text */
@@ -38,66 +61,91 @@
 }
 
 .hero-title {
-  font-size: clamp(2.5rem, 5vw, 4.5rem); /* Scales based on screen size */
-  margin-bottom: 20px;
-  line-height: 1.1;
+  font-size: clamp(2.8rem, 5vw, 4.8rem);
+  line-height: 1.05;
   font-weight: 900;
-  text-transform: uppercase;
+  letter-spacing: -1px;
+  margin-bottom: 25px;
+}
+
+.hero-subtitle {
+  font-size: 1.2rem;
+  color: rgba(255,255,255,0.75);
+  max-width: 520px;
+  line-height: 1.6;
 }
 
 .text-accent {
   color: #e30613; /* Vibrant red from your design */
 }
 
-.hero-subtitle {
-  font-size: 1.4rem;
-  color: #cccccc;
-  margin-bottom: 40px;
-  letter-spacing: 1px;
-}
 
-/* 4. Visual Handling */
-.hero-visual {
-  flex: 0 0 55%; /* Car takes the other 55% */
-  position: relative;
-  display: flex;
-  justify-content: flex-end;
+
+
+.hero-car {
+  width: 120%;
+  height: auto;
+  object-fit: contain;
+  z-index: 2;
+
+  /* Push car to the right */
+  transform: translateX(6%) translateZ(0);
+
+  filter: drop-shadow(0 30px 20px rgba(0, 0, 0, 0.9));
+  transition: transform 1.2s cubic-bezier(0.2, 1, 0.3, 1);
 }
 
 .hero-car {
-  width: 120%; /* Makes car slightly overflow for that "large" look */
-  height: auto;
-  z-index: 2;
-  /* Removes transform to prevent weird horizontal scrollbars */
+  transition: transform 1.2s cubic-bezier(0.2, 1, 0.3, 1);
 }
 
-.red-circle-glow {
+.hero-visual:hover .hero-car {
+  transform: translateX(0%) scale(1.03);
+}
+
+
+
+.hero-visual {
+  flex: 0 0 55%;
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+  /* Prevents the 'large' car from creating a horizontal scrollbar */
+  max-width: 100%; 
+}
+
+.hero-visual::after {
+  content: "";
   position: absolute;
-  width: 500px;
-  height: 500px;
-  background: radial-gradient(circle, rgba(139, 0, 0, 0.6) 0%, transparent 70%);
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  bottom: 5%;
+  right: 10%;
+  width: 60%;
+  height: 25%;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(0,0,0,0.8) 0%,
+    transparent 70%
+  );
   z-index: 1;
 }
 
+
+
+/* Test */
+
+
+/* End Test */
 /* Global Button */
 .btn-outline {
-  background: transparent;
-  border: 2px solid #8b0000;
-  color: #ffffff;
-  padding: 15px 45px;
-  font-weight: bold;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: 0.3s ease;
+  border: 1.5px solid rgba(139, 0, 0, 0.7);
+  padding: 16px 50px;
+  letter-spacing: 1px;
+  backdrop-filter: blur(4px);
 }
 
 .btn-outline:hover {
-    border: 2px solid black;
-  background:#8b0000;
-  color: white;
+  background: #8b0000;
+  border-color: #8b0000;
 }
 
 /* Container padding and background */
@@ -193,6 +241,27 @@
   background-color: #000; /* Fallback for gaps */
 }
 
+.info-banner::before,
+.info-banner::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 120px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.info-banner::before {
+  top: 0;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.6), transparent);
+}
+
+.info-banner::after {
+  bottom: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.6), transparent);
+}
+
 /* 2. The Panning Image (No-JS Parallax) */
 .banner-img {
   position: absolute;
@@ -205,53 +274,72 @@
 
   /* The Pure CSS Pan Logic */
   /* This moves the image slightly when the parent section is scrolled */
-  transform: translateY(var(--scroll-pan, 0)); 
-  transition: transform 0.1s ease-out;
+  transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.3, 1);
+  will-change: transform;
 }
 
 /* 3. The Overlay (Matching your reference image) */
 .banner-overlay {
   position: relative;
   z-index: 2;
-  /* Dark overlay to make white text readable */
-  background: rgba(0, 0, 0, 0.7); 
   height: 100%;
   width: 100%;
+
   display: flex;
   flex-direction: column;
   justify-content: center;
+
   padding-left: 10%;
+
+  background:
+    linear-gradient(
+      to right,
+      rgba(0,0,0,0.85) 0%,
+      rgba(0,0,0,0.65) 40%,
+      rgba(0,0,0,0.25) 65%,
+      rgba(0,0,0,0) 100%
+    );
 }
 
 .banner-title {
   color: #ffffff;
-  font-size: 2rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  margin-bottom: 5px;
+  font-size: clamp(1.8rem, 3vw, 2.4rem);
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  margin-bottom: 10px;
 }
 
 .banner-text {
-  color: #e0e0e0;
-  font-size: 1.5rem;
-  font-weight: 600;
-  margin-bottom: 25px;
+  color: #ffffff;
+  font-size: 1.3rem;
+  font-weight: 500;
+  max-width: 520px;
+  line-height: 1.6;
 }
-
 .btn-outline-small {
   background: transparent;
   border: 2px solid #8b0000;
   color: #ffffff;
-  padding: 10px 25px;
-  font-weight: bold;
+  padding: 12px 30px;
+  font-size: 0.95rem;
+
+  font-weight: 600;
   cursor: pointer;
-  transition: 0.3s ease;
+  transition: all 0.25s ease;
 }
 
 .btn-outline-small:hover {
-  border: 2px solid #000000;
+  border-color: #000000;
   background: #8b0000;
-  color: white;
+  color: #ffffff;
+}
+
+.btn-outline-small:hover {
+  transform: translateY(-1px);
+}
+
+.btn-outline-small:active {
+  transform: translateY(0);
 }
 
 /* Services Section */
@@ -325,26 +413,26 @@
   max-width: 1200px; 
   margin: 0 auto;
   background-color: #000000; 
-  /* Force removal of any tiny gaps between cards */
   gap: 0; 
   border: none; 
   outline: none;
-  /* Adds a smooth rounded look to the whole block without showing a border line */
   border-radius: 12px;
   overflow: hidden; 
 }
 
-/* 3. The Cards - Setting display to block prevents tiny 1px bottom gaps */
+/* Inspecton area */
 .inspection-card {
   height: 450px;
   width: 100%;
   overflow: hidden; 
   display: flex;
   flex-direction: column;
-  border: none; /* Ensure no borders here */
+  border: none;
 }
 
-/* 4. Text Card - Centering your titles and paragraphs */
+
+
+/* Text Stuff */
 .text-card {
   padding: 60px;
   box-sizing: border-box;
@@ -355,24 +443,50 @@
   border: none;
 }
 
-/* Red Accent Card */
+.text-card h3 {
+  color: #ffffff;
+  font-size: 1.8rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 18px;
+  position: relative;
+}
+
+.text-card h3::after {
+  content: "";
+  display: block;
+  width: 40px;
+  height: 3px;
+  background-color: red;
+  margin-top: 12px;
+}
+
+.text-card p {
+  color: white;
+  font-size: 1.1rem;
+  line-height: 1.7;
+  max-width: 420px;
+  margin-bottom: 28px;
+}
+
+
 .text-card.accent-bg {
   background: linear-gradient(135deg, #8b0000 0%, #330000 100%);
 }
 
-/* 5. Fixed Learn More Link (Cleaning up the "idk" borders) */
+
 .learn-more-link {
   color: #ffffff;
   text-decoration: none; 
   font-weight: 700;
-  font-size: 0.9rem;
+  font-size: 1rem;
   text-transform: uppercase;
   letter-spacing: 1px;
   display: inline-flex;
   align-items: center;
   width: fit-content;
   transition: color 0.3s ease;
-  /* Removed border-bottom and important tags for a cleaner look */
 }
 
 .learn-more-link .arrow {
@@ -390,24 +504,218 @@
 
 
 
-/* RESPONSIVE */
+/* Mobayl */
 @media (max-width: 768px) {
-  .hero-container {
+
+  .hero-section, 
+.featured-vehicles, 
+.services-section, 
+.inspection-section,
+.inspection-grid {
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+  .main-content-wrapper {
+    overflow-x: hidden; 
+  }
+
+  .hero-section {
+    min-height: 40vh; 
+    padding-top: 60px;
+  }
+
+  .hero-section::after {
+  content: "";
+  position: absolute;
+  bottom: -1px; 
+  left: 0;
+  width: 100%;
+  height: 100px; 
+  background: linear-gradient(to bottom, transparent 0%, #ffffff 100%);
+  pointer-events: none;
+  z-index: 5;
+}
+  
+
+.hero-container {
     flex-direction: column;
     text-align: center;
+    padding: 0 24px 60px; /* Tightened spacing */
   }
+
+  .hero-text-box {
+    flex: 0 0 100%;
+    padding-right: 0;
+    margin-bottom: 35px;
+  }
+
+  .hero-title {
+    font-size: 2.4rem; 
+    letter-spacing: -0.5px;
+    margin-bottom: 15px;
+  }
+
+  .hero-subtitle {
+    font-size: 1rem;
+    margin: 0 auto 25px;
+    max-width: 90%;
+    line-height: 1.5;
+  }
+
+
   .hero-car {
-    width: 100%;
-    transform: none;
+    display: none;
   }
+
+  .featured-vehicles {
+    margin-top: -1px; 
+    position: relative;
+    z-index: 2;
+  }
+
+  .section-title {
+    font-size: 1.75rem; /* Toned down from 3.5rem */
+    padding: 10px 20px;
+    margin-bottom: 30px;
+    border-radius: 15px;
+    border-width: 2px;
+  }
+
+  .vehicle-grid {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: nowrap; /* Forces items in a row */
+    overflow-x: auto; /* Enables horizontal swipe */
+    padding: 10px 20px 30px;
+    gap: 15px;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
+  }
+
+  .vehicle-grid::-webkit-scrollbar {
+    display: none; /* Clean app-like look */
+  }
+
+  .category-card {
+    flex: 0 0 135px;
+    height: 135px;
+    scroll-snap-align: center;
+    border-radius: 12px;
+  }
+
+  .cat-icon {
+    width: 55px; 
+  }
+
+  .cat-label {
+    font-size: 0.75rem;
+    letter-spacing: 0.5px;
+  }
+
+  .info-banner {
+    height: 480px; 
+  }
+
+ .banner-overlay {
+    padding: 0 20px !important; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;  
+    width: 90%;
+  }
+
+  .banner-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+
+  .banner-text {
+    margin: 0 auto 20px;
+    max-width: 90%;
+  }
+
+  /* 5. SERVICES & INSPECTION: Proportional Padding */
+  .services-section {
+    padding: 50px 20px;
+  }
+
   .services-grid {
     flex-direction: column;
-    gap: 40px;
+    gap: 35px;
   }
-.inspection-grid {
-    grid-template-columns: 1fr; /* Stacks vertically */
+
+  .service-item h4 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
   }
+
+  .inspection-section {
+    padding: 40px 0; 
+    margin-top: -2px; 
+  }
+
+  .inspection-grid {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important; 
+    width: 100%;
+    max-width: 100%;
+    border-radius: 0; 
+    gap: 0;
+  }
+
   .inspection-card {
-    height: 400px; /* Slightly shorter on mobile */
+    height: 220px !important; 
+    min-height: auto;
+  }
+
+  .text-card {
+    padding: 20px 15px !important; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  .text-card h3 {
+    font-size: 0.95rem !important; /* Toned down font size */
+    margin-bottom: 8px;
+    line-height: 1.2;
+  }
+
+  .text-card h3::after {
+    width: 20px; /* Smaller accent line */
+    margin: 8px auto 0;
+  }
+
+  .text-card p {
+    font-size: 0.8rem !important;
+    line-height: 1.2;
+    margin-bottom: 12px;
+    display: -webkit-box; 
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .img-card img {
+    width: 90%;
+    height: 90%;
+    object-fit: cover; 
+  }
+
+  .learn-more-link {
+    font-size: 0.6rem !important;
+  }
+
+  .btn-outline, .btn-outline-small {
+    padding: 12px 35px; /* Toned down button padding */
+    font-size: 0.9rem;
   }
 }

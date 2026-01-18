@@ -4,6 +4,7 @@ import { Footer } from '../footer/footer';
 import { FormsModule } from '@angular/forms';
 import { Title, Meta } from '@angular/platform-browser';
 import emailjs from '@emailjs/browser';
+import { CommonModule } from '@angular/common';
 
 interface ContactForm {
   name: string;
@@ -15,61 +16,62 @@ interface ContactForm {
 @Component({
   selector: 'app-contact',
   standalone: true,
-  imports: [Nav, Footer, FormsModule],
+  imports: [Nav, Footer, FormsModule, CommonModule],
   templateUrl: './contact.html',
   styleUrl: './contact.css',
 })
 export class Contact implements OnInit {
-  form: ContactForm = {
-    name: '',
-    email: '',
-    phone: '',
-    message: ''
-  };
+  form: ContactForm = { name: '', email: '', phone: '', message: '' };
+  isSending = false; // Track loading state
 
   constructor(private title: Title, private meta: Meta) {}
 
   ngOnInit() {
-    // CRITICAL: Initialize globally. 
-    // This is often why the "send" method fails silently.
     emailjs.init('fdKiUJiJkms7lnJ1D');
     this.updateContactSEO();
   }
 
   updateContactSEO() {
+
     this.title.setTitle('Contact M&J Quality Used Cars | Mabalacat City');
     this.meta.updateTag({ name: 'description', content: 'Contact JM Punsalan at M&J Quality Used Cars Mabalacat. Get the best secondhand car deals in Pampanga.' });
     this.meta.updateTag({ name: 'keywords', content: 'Mabalacat car dealer, contact M&J, buy used cars Pampanga' });
+
   }
 
+  // Check if walang laman yung input fields
   send() {
-    if (!this.form.email || !this.form.name) {
-      alert("Please fill in your name and email.");
+    if (!this.form.email || !this.form.name || !this.form.message) {
+      alert("Please fill in all required fields.");
       return;
     }
 
-    // Using the 'template_params' object explicitly to match EmailJS dashboard
+    this.isSending = true;
+
     const templateParams = {
       name: this.form.name,
       email: this.form.email,
       phone: this.form.phone,
       message: this.form.message,
-      to_name: 'M&J Admin' // Useful if your template has a {{to_name}} tag
+      to_name: 'M&J Admin'
+
     };
 
-    emailjs.send(
-      'service_h64pn57', 
-      'template_gdfdmqa', 
-      templateParams
-    ).then((response) => {
-      console.log('SUCCESS!', response.status, response.text);
-      alert('Message Sent Successfully!');
-      this.resetForm();
-    }, (err) => {
-      console.error('FAILED...', err);
-      // Check if err.status is 401 (Wrong Public Key) or 400 (Wrong Service ID)
-      alert(`Failed to send. Error: ${err.text || 'Check console'}`);
-    });
+    emailjs.send('service_h64pn57', 'template_gdfdmqa', templateParams)
+      .then((response) => {
+        console.log('SUCCESS!', response.status, response.text);
+        alert('Message Sent Successfully!');
+        this.resetForm();
+      })
+      .catch((err) => {
+        console.error('FAILED...', err);
+        alert(`Failed to send. Error: ${err.text || 'Check console'}`);
+      })
+      .finally(() => {
+        // This is the "magic" line that resets the button no matter what happens
+        this.isSending = false;
+      });
+
   }
 
   resetForm() {
