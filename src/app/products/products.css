@@ -419,10 +419,16 @@
   }
 
   .blog-grid { grid-template-columns: 1fr; gap: 30px; }
+    /* 1. Header Banner: Scaled for Mobile */
   .header-banner {
     padding: 60px 20px 80px;
-    border-bottom-left-radius: 50% 40px;
+    border-bottom-left-radius: 50% 40px; /* Toned down curve */
     border-bottom-right-radius: 50% 40px;
+  }
+
+  .header-banner h1 {
+    font-size: 2.2rem; /* Toned down from 3.5rem */
+    letter-spacing: 1px;
   }
 }
 @media (max-width: 480px) {

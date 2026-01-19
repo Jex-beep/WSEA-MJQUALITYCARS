@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 import { Title, Meta } from '@angular/platform-browser';
 import { BlogService } from '../../services/blogs';
 import { Nav } from '../../nav/nav';
@@ -9,7 +9,7 @@ import { Footer } from '../../footer/footer';
 @Component({
   selector: 'app-blog-detail',
   standalone: true,
-  imports: [CommonModule, Nav, Footer],
+  imports: [CommonModule, Nav, Footer, RouterLink],
   templateUrl: './blog-detail.html',
   styleUrl: './blog-detail.css'
 })

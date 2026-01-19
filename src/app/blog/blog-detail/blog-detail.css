@@ -1,8 +1,8 @@
 /* 1. Page & Layout Reset */
 .blog-detail-view {
-  max-width: 900px; /* Optimal reading width for long-form content */
-  margin: 80px auto 120px;
-  padding: 0 30px;
+  max-width: 850px; 
+  margin: 120px auto 100px;
+  padding: 0 25px;
   animation: fadeIn 0.8s ease-out;
 }
 
@@ -11,29 +11,33 @@
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* 2. Author Header Section */
+/* 2. Author Header Section - LARGER & BOLDER */
 .author-header {
   display: flex;
-  flex-direction: column;
+  flex-direction: column; /* Stacked for more impact */
   align-items: center;
-  text-align: center;
+  justify-content: center;
+  gap: 15px;
   margin-bottom: 40px;
 }
 
 .author-avatar {
-  width: 70px;
-  height: 70px;
+  width: 85px; /* Significantly larger */
+  height: 85px;
   border-radius: 50%;
   object-fit: cover;
-  margin-bottom: 12px;
-  border: 3px solid #f0f0f0;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  border: 3px solid #fff;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1); /* Adds depth */
+}
+
+.author-info {
+  text-align: center;
 }
 
 .author-name {
   font-family: 'Helvetica Neue', Arial, sans-serif;
-  font-weight: 800;
-  font-size: 1.1rem;
+  font-weight: 900;
+  font-size: 1.2rem; /* Larger text */
   color: #000;
   margin: 0;
   text-transform: uppercase;
@@ -41,21 +45,23 @@
 }
 
 .author-role {
-  font-size: 0.85rem;
-  color: #888;
-  margin: 4px 0 0;
-  font-weight: 500;
+  font-size: 0.9rem;
+  color: #e30613; /* M&J Red for the role to pop */
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-top: 4px;
 }
 
 /* 3. Title & Meta */
 .detail-title {
-  font-size: 3.2rem;
+  font-size: clamp(2.2rem, 5vw, 3.8rem);
   font-weight: 900;
   text-align: center;
   line-height: 1.1;
   color: #000;
-  margin: 20px 0 30px;
-  letter-spacing: -1px;
+  margin: 15px 0 25px;
+  letter-spacing: -2px;
 }
 
 .detail-meta {
@@ -63,91 +69,97 @@
   justify-content: center;
   align-items: center;
   gap: 15px;
-  color: #666;
-  font-size: 0.9rem;
-  font-weight: 600;
+  color: #777;
+  font-size: 0.85rem;
+  font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 1px;
-  margin-bottom: 60px;
+  letter-spacing: 1.5px;
+  margin-bottom: 30px;
 }
 
 .meta-dot {
-  width: 4px;
-  height: 4px;
-  background-color: #d10000;
+  width: 5px;
+  height: 5px;
+  background-color: #e30613;
   border-radius: 50%;
 }
 
-/* 4. The Content Layout */
-.main-layout {
-  display: grid;
-  grid-template-columns: 80px 1fr; /* Space for the floating sidebar */
-  gap: 40px;
-  position: relative;
+/* 4. Back Button Style */
+.back-nav-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 60px;
 }
 
-
-.circle-btn {
-  width: 45px;
-  height: 45px;
-  border-radius: 50%;
-  border: 1px solid #eee;
-  background: #fff;
-  color: #444;
-  cursor: pointer;
-  transition: all 0.3s cubic-bezier(0.2, 1, 0.3, 1);
+.back-btn {
+  text-decoration: none;
+  color: #000;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 2px;
   display: flex;
   align-items: center;
-  justify-content: center;
-  font-size: 1.1rem;
+  gap: 8px;
+  padding: 12px 24px;
+  background: #f4f4f4;
+  border-radius: 100px;
+  transition: all 0.3s ease;
 }
 
-.circle-btn:hover {
-  background: #000;
+.back-btn:hover {
+  background: #e30613;
   color: #fff;
-  transform: scale(1.1);
-  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+  transform: translateY(-2px);
 }
 
-/* 5. Rich Text Content Styling */
+/* 5. Content Layout */
+.main-layout {
+  display: block;
+  width: 100%;
+}
+
 .post-body {
-  max-width: 700px; /* Inner content width for better focus */
+  max-width: 720px;
+  margin: 0 auto;
 }
 
 .rich-text {
   font-size: 1.25rem;
   line-height: 1.9;
   color: #222;
-  font-family: 'Georgia', serif; /* Serif font is best for reading long text */
+  font-family: 'Georgia', serif;
 }
 
-/* Professional Image Handling within Content */
 .rich-text img {
   width: 100%;
+  max-width: 100%;
   height: auto;
-  border-radius: 25px; /* Matching your blog list curve */
-  margin: 50px 0;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.07);
+  border-radius: 20px;
+  margin: 40px 0;
+  box-shadow: 0 15px 45px rgba(0,0,0,0.08);
   display: block;
 }
+/* This targets images inside the [innerHTML] block */
+::ng-deep .rich-text img {
+  display: block;
+  width: auto;
+  max-width: 100%; /* Adjust this percentage to make it smaller or larger */
+  height: auto;
+  margin: 40px auto; /* Centers the image */
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  transition: transform 0.3s ease;
+}
 
-.rich-text p {
-  margin-bottom: 28px;
+::ng-deep .rich-text img:hover {
+  transform: scale(1.02);
 }
 
 /* 6. Responsive Adjustments */
-@media (max-width: 1024px) {
-  .detail-title { font-size: 2.5rem; }
-}
-
 @media (max-width: 768px) {
-  .main-layout { grid-template-columns: 1fr; }
-  .share-sidebar {
-    flex-direction: row;
-    position: static;
-    justify-content: center;
-    margin-bottom: 30px;
-  }
-  .detail-title { font-size: 2rem; }
-  .blog-detail-view { margin-top: 40px; }
+  .blog-detail-view { margin-top: 100px; padding: 0 20px; }
+  .detail-title { font-size: 2.1rem; }
+  .author-avatar { width: 70px; height: 70px; }
 }

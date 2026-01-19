@@ -134,109 +134,99 @@
 }
 
 @media (max-width: 768px) {
-  /* 1. Header Banner (Preserving your exact requested scale) */
-  .header-banner {
-    padding: 60px 20px 80px;
-    border-bottom-left-radius: 50% 40px; 
-    border-bottom-right-radius: 50% 40px;
-  }
-
-  /* 2. Blog Container: Background Refresh */
-  .blog-page {
-    background: linear-gradient(to bottom, #f4f4f7, #ffffff);
-  }
-
+  /* 1. Ensure the container is centered and takes full width */
   .blog-container {
     margin: 20px auto 60px;
     padding: 0 18px;
+    display: flex;
+    justify-content: center;
   }
 
-  /* 3. The Elite Blog Card */
+  /* 2. Force grid to center and display one column */
+  .blog-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+    width: 100%;
+    max-width: 400px; /* Limits width so it doesn't stretch too wide on tablets */
+    margin: 0 auto;
+  }
+
+  /* 3. The Card: Ensure it contains all children */
   .blog-card {
     border-radius: 32px;
-    padding: 0; /* Remove internal padding to let image bleed to top */
+    padding: 0;
     background: #ffffff;
-    overflow: hidden;
-    border: none;
+    overflow: hidden; /* CRITICAL: This clips the image to the card corners */
+    display: flex;
+    flex-direction: column;
     box-shadow: 0 12px 40px rgba(0, 0, 0, 0.06);
-    margin-bottom: 10px;
-  }
-
-  /* 4. Cinematic Image Container */
-  .card-image {
-    border-radius: 0; /* Flat top for modern look */
-    position: relative;
-    height: 220px;
-  }
-
-  /* Adding a soft gradient overlay so white text/icons pop if needed */
-  .card-image::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
+    margin-bottom: 0;
     width: 100%;
-    height: 40%;
-    background: linear-gradient(to top, rgba(0,0,0,0.3), transparent);
+  }
+
+  /* 4. The Photo: Responsive Scaling */
+  .card-image {
+    width: 100%;
+    height: 200px; /* Fixed height for consistency */
+    position: relative;
+    overflow: hidden;
+  }
+
+  .card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* This keeps the photo inside the box without stretching */
+    display: block;
   }
 
   /* 5. Refined Content Area */
   .card-content {
-    padding: 25px 20px;
+    padding: 20px 20px 25px; /* Adjusted padding */
+    background: #ffffff;
     position: relative;
   }
 
-  /* The "Luxury" Accent Line */
+  /* The Red Accent Line */
   .card-content::before {
     content: '';
     position: absolute;
     left: 0;
-    top: 25px;
+    top: 22px;
     width: 4px;
-    height: 40px;
-    background: #610000; /* M&J Signature Red */
+    height: 35px;
+    background: #610000;
     border-radius: 0 4px 4px 0;
   }
 
   .blog-title {
-    font-size: 1.4rem;
+    font-size: 1.3rem;
     font-weight: 800;
     color: #000;
     margin-bottom: 15px;
-    padding-left: 10px; /* Space for the accent line */
+    padding-left: 12px;
+    line-height: 1.3;
     letter-spacing: -0.5px;
+    text-align: left; /* Ensure text isn't centered if card is centered */
   }
 
-  /* 6. Magazine Style Meta Tags */
   .blog-meta {
-    padding-left: 10px;
+    padding-left: 12px;
     display: flex;
     align-items: center;
-    justify-content: space-between; /* Spaced out look */
+    justify-content: flex-start; /* Better alignment for mobile */
+    gap: 10px;
+  }
+    /* 1. Header Banner: Scaled for Mobile */
+  .header-banner {
+    padding: 60px 20px 80px;
+    border-bottom-left-radius: 50% 40px; /* Toned down curve */
+    border-bottom-right-radius: 50% 40px;
   }
 
-  .category {
-    background: rgba(97, 0, 0, 0.08) !important; /* Soft tinted background */
-    color: #610000 !important;
-    font-size: 0.65rem;
-    font-weight: 900;
-    padding: 6px 14px;
-    border-radius: 100px;
-    border: 1px solid rgba(97, 0, 0, 0.1);
-  }
-
-  .date {
-    font-size: 0.75rem;
-    color: #999;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-  }
-
-  /* 7. Hover/Touch Effect */
-  .blog-card:active {
-    transform: scale(0.98);
-    transition: 0.2s;
+  .header-banner h1 {
+    font-size: 2.2rem; /* Toned down from 3.5rem */
+    letter-spacing: 1px;
   }
 }
 /* Extra small screens fix */
