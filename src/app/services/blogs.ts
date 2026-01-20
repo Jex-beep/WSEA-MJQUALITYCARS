@@ -11,23 +11,23 @@ export class BlogService {
       category: 'Guides',
       date: 'Jan 17, 2026',
       author: 'Micko Alberto',
-      authorImage: 'authors/micko.jpg', 
+      authorImage: 'authors/micko.jpg',
       readTime: '6 Mins Read',
-      image: '/blogs/blog1.png', 
+      image: '/blogs/blog1.png',
       description: 'Buying a used car is one of the smartest, and arguably cheapest ways to own a personal vehicle without being too heavy on your wallet.',
       content: `
         <p>Buying a used car is one of the smartest, and arguably cheapest ways to own a personal vehicle without being too heavy on your wallet, especially in growing areas like Mabalacat City, Pampanga. Being close to Clark Freeport Zone, with different industries, expanding road networks, and increasing demand for private transportation, the market for used cars in Mabalacat City continues to grow.</p>
-        
+
         <p>However, purchasing a used vehicle comes with its own set of risks and every potential buyer might just be stuck behind that “potential” due to the fear of the unknown. Well if you don’t know what to look for, this guide will walk you through everything you need to know, from where to find reliable sellers, to the documents you need, all so you can make a confident and informed decision.</p>
 
         <h3>Why Buy a Used Car in Mabalacat City?</h3>
         <p>Mabalacat City has a steady supply of used cars laying around, many of which come from people who neglected said vehicles, families upgrading vehicles due to need, or businesses rotating company vehicles. This results in a wide range of vehicles available at competitive prices.</p>
-        
+
         <p>One more advantage is convenience, as most dealerships can be found along main roads like <strong>MacArthur Highway</strong>, which makes it easy to visit multiple sellers in a single trip. For buyers looking for affordable secondhand cars in Mabalacat, this accessibility is a major plus.</p>
 
         <h3>Trusted Used Car Dealerships in Mabalacat City</h3>
         <p>One of the safest ways to buy a car is through known and trusted used car dealers in Mabalacat. These businesses usually inspect vehicles before selling and help with ownership transfer.</p>
-        
+
         <ul>
           <li><strong>Jan P Car Enterprises:</strong> Located along MacArthur Highway, Jan P Car Enterprises is a well-known local seller offering a variety of secondhand vehicles. Buyers often visit this dealership for its accessible location and rotating inventory of sedans and family cars. This is a good starting point if you want to physically inspect cars and deal with a local seller familiar with the area.</li>
           <li><strong>M & J Quality Used Cars:</strong> Located nearby the Barangay Hall of Sta. Ines, M & J Quality Used Cars provide quality services that fits your lifestyle and budget. This is a good place to check if you live around the San Francisco and Mabiga area, especially if you want to inspect a vehicle physically.</li>
@@ -43,7 +43,7 @@ export class BlogService {
 
         <h3>Online Marketplaces and Local Buy-and-Sell Groups</h3>
         <p>Online platforms like Facebook’s Marketplace and other buy-and-sell groups in Pampanga are filled with listings for used cars in Mabalacat City. These are for buyers who want more options without having the need to physically go to the dealership just yet.</p>
-        
+
         <strong>Safety Tips When Buying Online:</strong>
         <ol>
           <li>Never send deposits before seeing the car</li>
@@ -64,7 +64,7 @@ export class BlogService {
         <p>If you’re not confident, bring a trusted mechanic. This step is essential when buying affordable secondhand cars in Mabalacat, and even anywhere.</p>
 
         <p>All in all, finding the best places to buy secondhand cars in Mabalacat City comes down to research, patience, and smart decision-making. Whether you choose trusted dealerships like <strong>M & J Quality Used Cars</strong>, explore dealers near Clark, or buy directly from someone you know, taking the time to inspect and verify everything will protect your investment.</p>
-        
+
         <p>With the right approach, Mabalacat City offers excellent opportunities to own a reliable secondhand car that fits your budget and lifestyle.</p>
       `
     },
@@ -74,15 +74,15 @@ export class BlogService {
       category: 'Guides',
       date: 'Jan 17, 2026',
       author: 'Shannen Pascual',
-      authorImage: 'authors/sha.jpg', 
+      authorImage: 'authors/sha.jpg',
       readTime: '6 Mins Read',
-      image: '/blogs/givingkey.png', 
+      image: '/blogs/givingkey.png',
       description: 'Buying a used car is one of the smartest, and arguably cheapest ways to own a personal vehicle without being too heavy on your wallet.',
       content: `
     <p>Buying used cars in Mabalacat City has become a practical choice for many local buyers who want affordability without sacrificing reliability. With rising brand-new car prices, more drivers are turning to second hand cars in the Philippines as a smarter alternative for daily use. However, choosing the right vehicle requires careful inspection, proper documentation, and a trusted seller.</p>
-    
+
     <p>At <strong>MJ Quality Cars</strong>, a used car dealership in Mabalacat City, we believe that transparency and informed decisions lead to better ownership experiences. Whether you are a first-time buyer or upgrading your vehicle, understanding how to evaluate affordable used cars in Mabalacat City can help you avoid costly mistakes and ensure long-term value.</p>
-    
+
     <p>This guide will walk you through everything you need to know before buying a used car—from inspections and budgeting to choosing a reliable used car dealer in Mabalacat.</p>
 
     <img src="blogs/givingkey.png" alt="Handing over car keys" class="blog-inline-img">
@@ -183,13 +183,13 @@ export class BlogService {
   category: 'Guides',
   date: 'Jan 17, 2026',
   author: 'JM Punsalan',
-  authorImage: 'authors/jm.jpg', 
+  authorImage: 'authors/jm.jpg',
   readTime: '6 Mins Read',
-  image: '/blogs/gentlemen_talking.png', 
+  image: '/blogs/gentlemen_talking.png',
   description: 'Buying a used car is one of the smartest, and arguably cheapest ways to own a personal vehicle without being too heavy on your wallet.',
   content: `
     <p>Buying used cars in Mabalacat City has become easier because of online platforms like Facebook Marketplace. While these listings may seem convenient and affordable, many buyers in the Philippines experience issues such as hidden defects, incomplete documents, or even scams. As demand for second hand cars in the Philippines grows, so does the risk of unsafe transactions.</p>
-    
+
     <p>Choosing a trusted used car dealer in Mabalacat City, like <strong>MJ Quality Cars</strong>, provides buyers with security, transparency, and peace of mind. Unlike private sellers, dealerships follow proper inspection processes and ensure legal documentation is complete. If you are looking for affordable used cars in Mabalacat City, understanding the difference between buying from a dealer and a private seller can protect you from costly mistakes.</p>
 
     <img src="blogs/car_dashboard.png" alt="Car Dashboard Interior" class="blog-inline-img">
@@ -298,9 +298,9 @@ export class BlogService {
   category: 'Guides',
   date: 'Jan 20, 2026',
   author: 'Clarence Lane Parungao',
-  authorImage: 'authors/lane.jpg', 
+  authorImage: 'authors/lane.jpg',
   readTime: '6 Mins Read',
-  image: '/blogs/vios.png', 
+  image: '/blogs/vios.png',
   description: 'Looking for affordable and reliable second-hand cars in Pampanga? Explore our top picks for beginners and families at M&J Quality Used Cars.',
   content: `
     <h2>Introduction</h2>
@@ -308,7 +308,7 @@ export class BlogService {
 
     <h2>Top Picks for Beginners and Families</h2>
     <p>If you’re a first-time car buyer in Pampanga, here are some models that are popular among our customers:</p>
-    
+
     <h3>1. Toyota Vios – Affordable, fuel-efficient, and easy to maintain.</h3>
     <img src="blogs/vios.png" alt="Toyota Vios" class="blog-inline-img">
 
@@ -353,9 +353,9 @@ export class BlogService {
   category: 'Guides',
   date: 'Jan 20, 2026',
   author: 'Micko Alberto',
-  authorImage: 'authors/micko.jpg', 
+  authorImage: 'authors/micko.jpg',
   readTime: '4 Mins Read',
-  image: '/blogs/engine.jpg', 
+  image: '/blogs/engine.jpg',
   description: 'Buying your first car? Explore the best beginner-friendly, affordable, and reliable used cars in Mabalacat City and Pampanga.',
   content: `
     <h2>Introduction</h2>
@@ -391,7 +391,7 @@ export class BlogService {
     </ul>
 
     <p>For residents of Angeles City and Mabalacat City, finding affordable used cars in Pampanga has never been easier. At <strong>M&J Quality Used Cars</strong>, we’re more than just a car dealership — we’re your trusted partner in finding the right vehicle. Whether you’re a beginner or a seasoned driver, our selection of second-hand cars in Pampanga offers the perfect balance of affordability and reliability.</p>
-    
+
     <p style="text-align: center; margin-top: 30px;"><strong>Visit our showroom today and discover why M&J Quality Used Cars is the go-to choice for budget-friendly used cars in Pampanga.</strong></p>
   `
 },
@@ -401,13 +401,13 @@ export class BlogService {
   category: 'Guides',
   date: 'Jan 20, 2026',
   author: 'Clarence Lane Parungao',
-  authorImage: 'authors/lane.jpg', 
+  authorImage: 'authors/lane.jpg',
   readTime: '4 Mins Read',
-  image: '/blogs/keys.jpg', 
+  image: '/blogs/keys.jpg',
   description: 'For students in Mabalacat City, owning a car is about independence and safety. Discover the best budget-friendly used cars in Pampanga.',
   content: `
     <p>For students in Mabalacat City, owning a car isn’t just about convenience it’s about independence, safety, and affordability. Luckily, there are plenty of options when it comes to used cars in Pampanga, especially for those looking for second hand cars Mabalacat or used cars Angeles City. Whether you’re searching for quality used cars Pampanga, pre-owned cars Pampanga, or even used SUVs Pampanga, the right used car dealer Pampanga can help you find a ride that fits your budget and lifestyle.</p>
-    
+
     <p>Many students ask, “Where to buy second hand cars in Pampanga?” The answer often lies in choosing a reliable second hand car dealership like <strong>M & J QUALITY USED CARS</strong>, where you’ll find affordable used cars Pampanga, cheap used cars Pampanga, and used cars with complete papers Pampanga. If you’re ready to buy used cars in Pampanga, this guide will show you the best options for budget friendly used cars Pampanga.</p>
 
     <h2>Why Students in Mabalacat City Need Affordable Cars</h2>
@@ -442,8 +442,8 @@ export class BlogService {
   `
 }
 
-    
-    
+
+
   ];
 
   getBlogs() { return this.posts; }

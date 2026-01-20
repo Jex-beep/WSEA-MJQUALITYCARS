@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 import { Title, Meta } from '@angular/platform-browser';
 import { CarService } from '../../services/car';
 import { Nav } from '../../nav/nav';
@@ -9,7 +9,7 @@ import { Footer } from '../../footer/footer';
 @Component({
   selector: 'app-product-detail',
   standalone: true,
-  imports: [CommonModule, Nav, Footer],
+  imports: [CommonModule, Nav, Footer,RouterLink],
   templateUrl: './product-detail.html',
   styleUrl: './product-detail.css'
 })
@@ -41,7 +41,7 @@ export class ProductDetail implements OnInit {
 
   updateDetailSEO(): void {
     const fullDesc = `Buy this ${this.car.year} ${this.car.make}. Specs: ${this.car.gearbox} transmission, ${this.car.fuel} fuel, and ${this.car.distance} mileage. Available at M&J Quality Used Cars Mabalacat.`;
-    
+
     // Primary Meta Tags
     this.metaService.updateTag({ name: 'description', content: fullDesc });
     this.metaService.updateTag({ name: 'keywords', content: `${this.car.make} for sale, used ${this.car.type} Mabalacat, ${this.car.gearbox} cars Pampanga, second hand ${this.car.model}` });
