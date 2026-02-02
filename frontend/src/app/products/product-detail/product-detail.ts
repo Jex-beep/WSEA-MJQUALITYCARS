@@ -15,9 +15,11 @@ import { Observable, tap, map } from 'rxjs';
   styleUrl: './product-detail.css'
 })
 export class ProductDetail implements OnInit {
-  // Use a '$' suffix for Observables
   car$: Observable<any> | undefined;
-  mainDisplayImage: string = '';
+  mainDisplayImage: string | null = null;
+
+  // CHANGE THIS to your backend URL if images are stored there
+  private baseImageUrl = 'http://localhost:3000'; 
 
   private route = inject(ActivatedRoute);
   private carService = inject(CarService);
@@ -28,18 +30,22 @@ export class ProductDetail implements OnInit {
     const id = this.route.snapshot.paramMap.get('id');
 
     if (id) {
-      // We assign the observable directly to car$
       this.car$ = this.carService.getCarById(id).pipe(
-        // Extract data if nested, otherwise return response
         map(res => res.data ? res.data : res),
         tap(car => {
           if (car) {
-            this.mainDisplayImage = car.image;
             this.updateDetailSEO(car);
           }
         })
       );
     }
+  }
+
+  // Helper to ensure paths are correct
+  formatImg(path: string): string {
+    if (!path) return 'assets/placeholder-car.png';
+    if (path.startsWith('http') || path.startsWith('data:image')) return path;
+    return `${this.baseImageUrl}/${path}`;
   }
 
   setMainImage(imagePath: string): void {
@@ -56,13 +62,9 @@ export class ProductDetail implements OnInit {
 
     const fullDesc = `Buy this ${car.make} ${car.model} for ${formattedPrice}. Specs: ${car.gearbox}, ${car.fuel}. Located in Mabalacat, Pampanga.`;
 
-    // SEO Meta Tags
     this.metaService.updateTag({ name: 'description', content: fullDesc });
-    this.metaService.updateTag({ name: 'keywords', content: `${car.make}, ${car.model}, used cars Mabalacat, second hand cars Pampanga` });
-    this.metaService.updateTag({ property: 'og:title', content: `${car.make} ${car.model} - ${formattedPrice}` });
-    this.metaService.updateTag({ property: 'og:image', content: car.image || '' });
-    this.metaService.updateTag({ property: 'og:url', content: window.location.href });
-    this.metaService.updateTag({ name: 'geo.region', content: 'PH-PAM' });
-    this.metaService.updateTag({ name: 'geo.placename', content: 'Mabalacat, Pampanga' });
+    this.metaService.updateTag({ name: 'keywords', content: `${car.make}, ${car.model}, used cars Mabalacat` });
+    this.metaService.updateTag({ property: 'og:title', content: `${car.make} ${car.model}` });
+    this.metaService.updateTag({ property: 'og:image', content: this.formatImg(car.image) });
   }
 }
